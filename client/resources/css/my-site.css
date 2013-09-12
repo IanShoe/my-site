@@ -1,4 +1,112 @@
 body {
 	padding-top: 70px;
-	padding: 70px 5px 0 5px;
+	padding: 70px 25px 0 25px;
+}
+
+hr.flair-divider {
+	background-color: transparent;
+    height: 20px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px 0 0 0;
+    border-radius: 20px;
+    margin-bottom: -15px;
+}
+
+hr.flair-divider:before {
+    display: block;
+    content: "";
+    height: 20px;
+    margin-top: -21px;    
+    border-style: solid;
+    border-color: black;
+    border-width: 0 0 1px 0;
+    border-radius: 20px;
+}
+
+
+/*Resume*/
+
+.main-content {
+
+}
+
+.side-content {
+    
+}
+
+.title {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.resume-address {
+    text-align: right;
+    border-radius: 6px;
+    border: solid 2px #6b8a92;
+    box-shadow: -5px 5px 10px #aba6a6;
+}
+
+.resume-name {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.skill-set {
+    margin: 5px;
+}
+
+.xp-bar {
+    display: block;
+    height: 25px;
+    border-radius: 15px;
+    border: solid 2px #000000;
+    margin: 0 10px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: #d1dad5;
+}
+
+.xp-bar, .xp-bar * {
+    -webkit-transition: all .25s ease;
+       -moz-transition: all .25s ease;
+        -ms-transition: all .25s ease;
+         -o-transition: all .25s ease;
+            transition: all .25s ease;
+}
+
+.xp-bar-title, .xp-bar-level {
+    font-size: 14px;
+    font-weight: 800;
+    margin-left: 10px;
+    font-family: 'Georgia';
+}
+
+.xp-bar-level {
+    width: 75px;
+}
+
+.xp-bar-number {
+    width: 100%;
+    position: absolute;
+    margin: auto;
+    text-align: center;
+}
+
+.xp-bar-back {
+    height: 100%;
+}
+
+.xp-bar-stars {
+    position: absolute;
+    color: #ede500;
+    right: 2px;
+    top: 0;
+    font-size: 16px;
+}
+
+.xp-bar-stars i {
+    margin-right: 1px;
 }

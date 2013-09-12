@@ -1,0 +1,6 @@
+xp ranges
+0-200 Beginner
+201-800 Skilled
+851-1400 Advanced
+1401-1800 Expert
+1801-2000 Master

@@ -2,6 +2,7 @@
 
 var modules =  ['ngRoute',
                 'mySite.services',
+                'mySite.directives',
                 'MessageCenter',
                 'DragModule'];
 
