@@ -52,7 +52,13 @@ function resumeCtrl ($scope){
 				'Database Management Systems',
 				'Knowledge Discovery in Databases (Data Mining)',
 				'Mobile Applications(iOS)',
-				'Web Programming']
+				'Web Programming'],
+				url: 'http://www.pitt.edu',
+				logo: {
+					name: 'Pitt-Logo',
+					url: 'resources/images/Pitt-Logo.png',
+					height: '75px'
+				}
 			}]
 		},
 		jobs: [{
@@ -64,7 +70,13 @@ function resumeCtrl ($scope){
 			'Architected and implemented web app (Mobile Engagements) allowing users to build, customize and deploy mobile web apps with ease',
 			'Architected and implemented back end system for Mobile Engagements to facilitate dynamic persistence and deployment requirements for scaling mobile web apps',
 			'Created theme management system to improve designing experience across multiple web apps',
-			'Developed social media modules for integration to Facebook, Twitter and Twilio']
+			'Developed social media modules for integration to Facebook, Twitter and Twilio'],
+			url: 'http://www.versatile.com',
+			logo: {
+				name: 'Versatile-Logo',
+				url: 'resources/images/Versatile-Logo.png',
+				height: '50px'
+			}
 		},
 		{
 			company: 'Concurrent Technologies Corporation (CTC)',
@@ -78,7 +90,13 @@ function resumeCtrl ($scope){
 			'Experience with setting up, maintaining, and running data queries on Postgres SQL Databases',
 			'Developed frontend and backend capabilities inventory system to help manage CTC’s workforce',
 			'Used Git and SVN version control to maintain code base and progress between team members',
-			'Limited experience with ontology development to help define RDF structure for Allegrograph']
+			'Limited experience with ontology development to help define RDF structure for Allegrograph'],
+			url: 'http://www.ctc.com',
+			logo: {
+				name: 'CTC-Logo',
+				url: 'resources/images/CTC-Logo.png',
+				height: '75px'
+			}
 		},
 		{
 			company: 'Concurrent Technologies Corporation (CTC)',
@@ -89,7 +107,13 @@ function resumeCtrl ($scope){
 			'Code documentation using Java-Docs',
 			'Code testing and integration using Junit framework ',
 			'Developed web interface and backend system for scheduling Java system tasks',
-			'Developed iOS mobile app prototype to visualize geographic data using CoreData, Mapkit and Augmented Reality']
+			'Developed iOS mobile app prototype to visualize geographic data using CoreData, Mapkit and Augmented Reality'],
+			url: 'http://www.ctc.com',
+			logo: {
+				name: 'CTC-Logo',
+				url: 'resources/images/CTC-Logo.png',
+				height: '75px'
+			}
 		}],
 		skills: [{
 			name: 'HTML5',

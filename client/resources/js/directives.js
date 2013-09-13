@@ -1,7 +1,7 @@
 var mySiteDirectives = angular.module('mySite.directives', []);
 
 mySiteDirectives.
-directive('xpBar', function(){
+directive('xpBar', function($timeout){
 
 	// var XP = function(value){
 
@@ -56,7 +56,8 @@ directive('xpBar', function(){
 		}
 		var percent = value/20;
 		this.style= {
-			width: percent + '%',
+			eWidth: percent + '%',
+			width: '1px',
 			backgroundColor: 'hsl(' + (percent / 100 * 220) + ', 100%, 60%)'
 		}
 	}
@@ -69,15 +70,15 @@ directive('xpBar', function(){
 		restrict: 'AE',
 		template:	'<div class="xp-container">' +
 						'<div class="xp-bar-header">' +
-							// '<span class="xp-bar-level">{{metadata.level}}</span>' +
 							'<span class="xp-bar-title">{{name}}</span>' +
+							'<span class="xp-bar-level">{{metadata.level}}</span>' +
 						'</div>' +
 						'<div class="xp-bar">' +
 							'<div class="xp-bar-number">{{xp}} xp</div>' +
-							'<div class="xp-bar-back" ng-style="metadata.style"></div>' +
 							'<div class="xp-bar-stars">' +
 								'<i class="glyphicon glyphicon-star" ng-repeat="i in metadata.stars"></i>' +
 							'</div>' +
+							'<div class="xp-bar-back" ng-style="metadata.style"></div>' +
 					  	'</div>' +
 					'</div>',
 		replace: true,
@@ -85,6 +86,9 @@ directive('xpBar', function(){
 			scope.$watch('xp', function(newValue){
 				if(isFinite(newValue)) {
 					scope.metadata = new XP(newValue);
+					$timeout(function() {
+						scope.metadata.style.width = scope.metadata.style.eWidth;
+					}, 10);
 				};
 			});
 		}

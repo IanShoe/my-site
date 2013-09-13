@@ -1,6 +1,11 @@
 body {
 	padding-top: 70px;
-	padding: 70px 25px 0 25px;
+	padding: 70px 25px 50px 25px;
+    background-image: url('../images/BG-Dark-Grunge.jpg');
+    background-size: 15%;
+    color: #cdcdcd;
+    font-family: Times;
+    font-size: 16px;
 }
 
 hr.flair-divider {
@@ -24,6 +29,11 @@ hr.flair-divider:before {
     border-radius: 20px;
 }
 
+.navbar {
+    font-size: 14px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
 
 /*Resume*/
 
@@ -35,7 +45,7 @@ hr.flair-divider:before {
     
 }
 
-.title {
+.header {
     text-align: center;
     font-size: 16px;
     font-weight: 500;
@@ -43,9 +53,13 @@ hr.flair-divider:before {
 
 .resume-address {
     text-align: right;
-    border-radius: 6px;
+    /*border-radius: 6px;
     border: solid 2px #6b8a92;
-    box-shadow: -5px 5px 10px #aba6a6;
+    box-shadow: -5px 5px 10px #aba6a6;*/
+}
+
+.resume-header {
+    margin-bottom: 20px;
 }
 
 .resume-name {
@@ -53,20 +67,13 @@ hr.flair-divider:before {
     font-weight: 500;
 }
 
-.skill-set {
-    margin: 5px;
+.logo-image{
+    max-height: 100px;
+    max-width: 100%;
 }
 
-.xp-bar {
-    display: block;
-    height: 25px;
-    border-radius: 15px;
-    border: solid 2px #000000;
-    margin: 0 10px;
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    background-color: #d1dad5;
+.xp-container {
+    margin-bottom: 5px;
 }
 
 .xp-bar, .xp-bar * {
@@ -75,17 +82,41 @@ hr.flair-divider:before {
         -ms-transition: all .25s ease;
          -o-transition: all .25s ease;
             transition: all .25s ease;
+    -webkit-transition: width .75s ease-in-out;
+       -moz-transition: width .75s ease-in-out;
+        -ms-transition: width .75s ease-in-out;
+         -o-transition: width .75s ease-in-out;
+            transition: width .75s ease-in-out;
+}
+
+.xp-bar {
+    display: block;
+    height: 25px;
+    border-radius: 15px;
+    border: solid 2px #000060;
+    margin: 0 10px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: #c2cac6;
+}
+
+.xp-bar-header {
+    position: relative;
 }
 
 .xp-bar-title, .xp-bar-level {
     font-size: 14px;
     font-weight: 800;
     margin-left: 10px;
-    font-family: 'Georgia';
+    font-family: georgia;
+    text-overflow: ellipsis;
 }
 
 .xp-bar-level {
-    width: 75px;
+    position: absolute;
+    right: 10px;
+    top: 0;
 }
 
 .xp-bar-number {
@@ -93,6 +124,7 @@ hr.flair-divider:before {
     position: absolute;
     margin: auto;
     text-align: center;
+    color: #222222
 }
 
 .xp-bar-back {
@@ -101,7 +133,7 @@ hr.flair-divider:before {
 
 .xp-bar-stars {
     position: absolute;
-    color: #ede500;
+    color: #f3ff00;
     right: 2px;
     top: 0;
     font-size: 16px;
