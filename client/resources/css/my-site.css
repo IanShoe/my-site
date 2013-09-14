@@ -82,16 +82,11 @@ hr.flair-divider:before {
 }
 
 .xp-bar, .xp-bar * {
-    -webkit-transition: all 1.25s ease;
-       -moz-transition: all 1.25s ease;
-        -ms-transition: all 1.25s ease;
-         -o-transition: all 1.25s ease;
-            transition: all 1.25s ease;
-    -webkit-transition: width 1.25s ease-in-out;
-       -moz-transition: width 1.25s ease-in-out;
-        -ms-transition: width 1.25s ease-in-out;
-         -o-transition: width 1.25s ease-in-out;
-            transition: width 1.25s ease-in-out;
+    -webkit-transition: all .75s ease-in-out;
+       -moz-transition: all .75s ease-in-out;
+        -ms-transition: all .75s ease-in-out;
+         -o-transition: all .75s ease-in-out;
+            transition: all .75s ease-in-out;
 }
 
 .xp-bar {

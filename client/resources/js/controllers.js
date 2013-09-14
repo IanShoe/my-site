@@ -191,6 +191,10 @@ function resumeCtrl ($scope){
 			xp: 120
 		},
 		{
+			name: 'Ubuntu',
+			xp: 60
+		},
+		{
 			name: 'LevelDB',
 			xp: 50
 		}]

@@ -1,19 +1,19 @@
 .slide-up.ng-enter, .slide-up.ng-leave {
-	position:absolute;
+	position: absolute;
 }
 
 .slide-up.ng-enter {
-	-webkit-animation: 0.5s slide-up-enter;
-	-moz-animation: 0.5s slide-up-enter;
-	-o-animation: 0.5s slide-up-enter;
-	animation: 0.5s slide-up-enter;
+	-webkit-animation: .75s slide-up-enter;
+	-moz-animation: .75s slide-up-enter;
+	-o-animation: .75s slide-up-enter;
+	animation: .75s slide-up-enter;
 }
 
 .slide-up.ng-leave {
-	-webkit-animation: 0.5s slide-up-leave;
-	-moz-animation: 0.5s slide-up-leave;
-	-o-animation: 0.5s slide-up-leave;
-	animation: 0.5s slide-up-leave;
+	-webkit-animation: .75s slide-up-leave;
+	-moz-animation: .75s slide-up-leave;
+	-o-animation: .75s slide-up-leave;
+	animation: .75s slide-up-leave;
 }
 
 @keyframes slide-up-enter {
