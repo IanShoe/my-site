@@ -5,7 +5,12 @@ var mySiteServices = angular.module('mySite.services', []);
 mySiteServices.
 factory('ModuleService', function () {
 
-	var _module;
+	var _modules = [{
+		name: 'Message Center',
+		description: 'Easy Notification System'
+	}];
+
+	var _module = _modules[0];
 
 	var moduleService = {
 		setModule: function(module){
@@ -13,6 +18,9 @@ factory('ModuleService', function () {
 		},
 		getModule: function(){
 			return _module;
+		},
+		getModules: function(){
+			return _modules;
 		}
 	}
 	return moduleService;

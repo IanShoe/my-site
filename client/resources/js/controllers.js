@@ -1,9 +1,6 @@
 function indexCtrl ($scope, $location, MessageService, ModuleService){
 
-	$scope.modules=[{
-		name: 'Message Center',
-		description: 'Easy Notification System'
-	}];
+	$scope.modules = ModuleService.getModules();
 
 	$scope.navClick = function(){
 		$(".navbar-collapse").removeClass("in").addClass("collapse");
@@ -23,15 +20,15 @@ function indexCtrl ($scope, $location, MessageService, ModuleService){
 }
 
 function homeCtrl ($scope){
-	$scope.home = 'Home';
+	
 }
 
 function aboutCtrl ($scope){
-	$scope.about = 'About';
+	
 }
 
 function contactCtrl ($scope){
-	$scope.contact = 'Contact';
+	
 }
 
 function resumeCtrl ($scope){
