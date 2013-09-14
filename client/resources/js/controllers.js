@@ -5,8 +5,13 @@ function indexCtrl ($scope, $location, MessageService, ModuleService){
 		description: 'Easy Notification System'
 	}];
 
+	$scope.navClick = function(){
+		$(".navbar-collapse").removeClass("in").addClass("collapse");
+	}
+
 	$scope.gotoModule = function(module){
 		ModuleService.setModule(module);
+		$scope.navClick();
 		$location.path('/module');
 	}
 

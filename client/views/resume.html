@@ -8,14 +8,19 @@
 				<div>Occupation: {{resume.occupation}}</div>
 			</div>
 			<div class="col-sm-4">
-				<address class="resume-address">
-					<div>{{resume.address.street}}</div>
-					<div>
-						<span>{{resume.address.city}},</span>
-						<span>{{resume.address.state}}</span>
-						<span>{{resume.address.zip}}</span>
-					</div>
-				</address>
+				<div ng-switch on="user.access">
+					<address class="resume-address" ng-switch-when="true">
+						<div>{{resume.address.street}}</div>
+						<div>
+							<span>{{resume.address.city}},</span>
+							<span>{{resume.address.state}}</span>
+							<span>{{resume.address.zip}}</span>
+						</div>
+					</address>
+					<address class="resume-address" ng-switch-default>
+						Contact me for address details
+					</address>
+				</div>
 			</div>
 		</div>
 		<h4 class="header">Professional Experience</h4>

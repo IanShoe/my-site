@@ -57,6 +57,7 @@ hr.flair-divider:before {
 
 .resume-address {
     text-align: right;
+    margin-top: 10px;
     /*border-radius: 6px;
     border: solid 2px #6b8a92;
     box-shadow: -5px 5px 10px #aba6a6;*/
@@ -81,16 +82,16 @@ hr.flair-divider:before {
 }
 
 .xp-bar, .xp-bar * {
-    -webkit-transition: all .25s ease;
-       -moz-transition: all .25s ease;
-        -ms-transition: all .25s ease;
-         -o-transition: all .25s ease;
-            transition: all .25s ease;
-    -webkit-transition: width .75s ease-in-out;
-       -moz-transition: width .75s ease-in-out;
-        -ms-transition: width .75s ease-in-out;
-         -o-transition: width .75s ease-in-out;
-            transition: width .75s ease-in-out;
+    -webkit-transition: all 1.25s ease;
+       -moz-transition: all 1.25s ease;
+        -ms-transition: all 1.25s ease;
+         -o-transition: all 1.25s ease;
+            transition: all 1.25s ease;
+    -webkit-transition: width 1.25s ease-in-out;
+       -moz-transition: width 1.25s ease-in-out;
+        -ms-transition: width 1.25s ease-in-out;
+         -o-transition: width 1.25s ease-in-out;
+            transition: width 1.25s ease-in-out;
 }
 
 .xp-bar {
