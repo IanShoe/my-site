@@ -1,72 +1,65 @@
-<div class="resume-container">
-	<div class="row">
-		<div class="main-content col-md-8">
-			<div class="resume-header row">
+<div class="row">
+	<div class="main-content col-md-8">
+		<div class="resume-header row">
+			<div class="col-sm-8">
+				<span class="resume-name">{{resume.name}}</span>
+				<div>E-mail: {{resume.email}}</div>
+				<div>Telephone: {{resume.tel}}</div>
+				<div>Occupation: {{resume.occupation}}</div>
+			</div>
+			<div class="col-sm-4">
+				<address class="resume-address">
+					<div>{{resume.address.street}}</div>
+					<div>
+						<span>{{resume.address.city}},</span>
+						<span>{{resume.address.state}}</span>
+						<span>{{resume.address.zip}}</span>
+					</div>
+				</address>
+			</div>
+		</div>
+		<h4 class="header">Professional Experience</h4>
+		<div class="row" ng-repeat="job in resume.jobs">
+			<div class="col-sm-8">
+				<div>{{job.company}}</div>
+				<div>{{job.title}}</div>
+				<ul>
+					<li ng-repeat="item in job.list">
+						{{item}}
+					</li>
+				</ul>
+			</div>
+			<div class="col-sm-4">
+				<a href="{{job.url}}" target="_blank"><img class="logo-image" ng-style="{height: job.logo.height}" ng-src="{{job.logo.url}}"></a>
+			</div>
+		</div>
+		<h4 class="header">Education</h4>
+		<div ng-repeat="college in resume.education.colleges">
+			<div class="row">
 				<div class="col-sm-8">
-					<span class="resume-name">{{resume.name}}</span>
-					<div>E-mail: {{resume.email}}</div>
-					<div>Telephone: {{resume.tel}}</div>
-					<div>Occupation: {{resume.occupation}}</div>
+					<div>{{college.name}}</div>
+					<div>{{college.degree}}</div>
+					<div>Graduation: {{college.graduation}}</div>
 				</div>
 				<div class="col-sm-4">
-					<address class="resume-address">
-						<div>{{resume.address.street}}</div>
-						<div>
-							<span>{{resume.address.city}},</span>
-							<span>{{resume.address.state}}</span>
-							<span>{{resume.address.zip}}</span>
-						</div>
-					</address>
+					<a href="{{college.url}}" target="_blank"><img class="logo-image" ng-style="{height: college.logo.height}" ng-src="{{college.logo.url}}"></a>
 				</div>
 			</div>
-			<h4 class="header">Professional Experience</h4>
-			<div class="row" ng-repeat="job in resume.jobs">
-				<div class="col-sm-8">
-					<div>{{job.company}}</div>
+			<div class="row">
+				<div class="col-sm-12 col-md-12">
+					Upper Level Courses
 					<ul>
-						<li ng-repeat="item in job.list">
-							{{item}}
-						</li>
+						<li ng-repeat="course in college.courses">{{course}}</li>
 					</ul>
-				</div>
-				<div class="col-sm-4">
-					<a href="{{job.url}}" target="_blank"><img class="logo-image" ng-style="{height: job.logo.height}" ng-src="{{job.logo.url}}"></a>
-				</div>
-			</div>
-			<h4 class="header">Education</h4>
-			<div ng-repeat="college in resume.education.colleges">
-				<div class="row">
-					<div class="col-sm-8">
-						<div>{{college.name}}</div>
-						<div>{{college.degree}}</div>
-						<div>Graduation: {{college.graduation}}</div>
-					</div>
-					<div class="col-sm-4">
-						<a href="{{college.url}}" target="_blank"><img class="logo-image" ng-style="{height: college.logo.height}" ng-src="{{college.logo.url}}"></a>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-sm-12 col-md-12">
-						Upper Level Courses
-						<ul>
-							<li ng-repeat="course in college.courses">{{course}}</li>
-						</ul>
-					</div>
 				</div>
 			</div>
 		</div>
-		<div class="side-content col-md-4">
-			<h4 class="header">Skills and Technology</h4>
-			<hr class="flair-divider">
-			<div class="skill-set" ng-repeat="skill in resume.skills | orderBy: '-xp'">
-				<xp-bar xp="skill.xp" name="skill.name"></xp-bar>
-			</div>
-			<!-- <div class="social-box">
-				<h4 class="header">Connect</h4>
-				<div class="social-icons">
-					
-				</div>
-			</div> -->
+	</div>
+	<div class="side-content col-md-4">
+		<h4 class="header">Skills and Technology</h4>
+		<hr class="flair-divider">
+		<div class="skill-set" ng-repeat="skill in resume.skills | orderBy: '-xp'">
+			<xp-bar xp="skill.xp" name="skill.name"></xp-bar>
 		</div>
 	</div>
 </div>

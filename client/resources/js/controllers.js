@@ -51,7 +51,7 @@ function resumeCtrl ($scope){
 				'Embedded Systems',
 				'Database Management Systems',
 				'Knowledge Discovery in Databases (Data Mining)',
-				'Mobile Applications(iOS)',
+				'Mobile Applications (iOS)',
 				'Web Programming'],
 				url: 'http://www.pitt.edu',
 				logo: {
@@ -68,6 +68,7 @@ function resumeCtrl ($scope){
 			title: 'Software Engineer',
 			list: ['Developed and maintained URL shortening and redirection service for both customer and internal use',
 			'Architected and implemented web app (Mobile Engagements) allowing users to build, customize and deploy mobile web apps with ease',
+			'Built live preview web component reflecting instantaneous feedback for user interaction',
 			'Architected and implemented back end system for Mobile Engagements to facilitate dynamic persistence and deployment requirements for scaling mobile web apps',
 			'Created theme management system to improve designing experience across multiple web apps',
 			'Developed social media modules for integration to Facebook, Twitter and Twilio'],

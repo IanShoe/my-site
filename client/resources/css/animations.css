@@ -1,0 +1,175 @@
+.slide-up.ng-enter, .slide-up.ng-leave {
+	position:absolute;
+}
+
+.slide-up.ng-enter {
+	-webkit-animation: 0.5s slide-up-enter;
+	-moz-animation: 0.5s slide-up-enter;
+	-o-animation: 0.5s slide-up-enter;
+	animation: 0.5s slide-up-enter;
+}
+
+.slide-up.ng-leave {
+	-webkit-animation: 0.5s slide-up-leave;
+	-moz-animation: 0.5s slide-up-leave;
+	-o-animation: 0.5s slide-up-leave;
+	animation: 0.5s slide-up-leave;
+}
+
+@keyframes slide-up-enter {
+	from {top:1000px; opacity:0;}
+	to {top:0; opacity:1;}
+}
+
+@keyframes slide-up-leave {
+	from {top:0; opacity:1;}
+	to {top:-1000px; opacity:0;}
+}
+
+@-webkit-keyframes slide-up-enter {
+	from {top:1000px; opacity:0;}
+	to {top:0; opacity:1;}
+}
+
+@-webkit-keyframes slide-up-leave {
+	from {top:0; opacity:1;}
+	to {top:-1000px; opacity:0;}
+}
+
+@-moz-keyframes slide-up-enter {
+	from {top:1000px; opacity:0;}
+	to {top:0; opacity:1;}
+}
+
+@-moz-keyframes slide-up-leave {
+	from {top:0; opacity:1;}
+	to {top:-1000px; opacity:0;}
+}
+
+@-o-keyframes slide-up-enter {
+	from {top:1000px; opacity:0;}
+	to {top:0; opacity:1;}
+}
+
+@-o-keyframes slide-up-leave {
+	from {top:0; opacity:1;}
+	to {top:-1000px; opacity:0;}
+}
+
+
+
+.ng-fade.ng-enter, .ng-fade.ng-leave {
+	position:absolute;
+}
+
+.ng-fade.ng-enter {
+	-webkit-animation: 0.5s fade-enter;
+	-moz-animation: 0.5s fade-enter;
+	-o-animation: 0.5s fade-enter;
+	animation: 0.5s fade-enter;
+}
+
+.ng-fade.ng-leave {
+	-webkit-animation: 0.5s fade-leave;
+	-moz-animation: 0.5s fade-leave;
+	-o-animation: 0.5s fade-leave;
+	animation: 0.5s fade-leave;
+}
+
+@keyframes fade-enter {
+	from {opacity: 0}
+	to {opacity: 1;}
+}
+
+@keyframes fade-leave {
+	from {opacity: 1;}
+	to {opacity: 0}
+}
+
+@-webkit-keyframes fade-enter {
+	from {opacity: 0}
+	to {opacity: 1;}
+}
+
+@-webkit-keyframes fade-leave {
+	from {opacity: 1;}
+	to {opacity: 0}
+}
+
+@-moz-keyframes fade-enter {
+	from {opacity: 0}
+	to {opacity: 1;}
+}
+
+@-moz-keyframes fade-leave {
+	from {opacity: 1;}
+	to {opacity: 0}
+}
+
+@-o-keyframes fade-enter {
+	from {opacity: 0}
+	to {opacity: 1;}
+}
+
+@-o-keyframes fade-leave {
+	from {opacity: 1;}
+	to {opacity: 0}
+}
+
+.rotate.ng-enter, .rotate.ng-leave {
+	position:absolute;
+}
+
+.rotate.ng-enter {
+	-webkit-animation: .50s rotate-enter;
+	-moz-animation: .50s rotate-enter;
+	-o-animation: .50s rotate-enter;
+	animation: .50s rotate-enter;
+}
+
+.rotate.ng-leave {
+	-webkit-animation: .50s rotate-leave;
+	-moz-animation: .50s rotate-leave;
+	-o-animation: .50s rotate-leave;
+	animation: .50s rotate-leave;
+}
+
+@keyframes rotate-enter {
+	0% {transform: rotate(270deg);opacity:0;}
+	100% {transform: rotate(360deg);opacity:1;}
+}
+
+@keyframes rotate-leave {
+	0% {transform: rotate(360deg);opacity:1;}
+	100% {transform: rotate(450deg);opacity:0;}
+}
+
+@-webkit-keyframes rotate-enter {
+	0% {-webkit-transform: rotate(270deg);opacity:0;}
+	100% {-webkit-transform: rotate(360deg);opacity:1;}
+}
+
+@-webkit-keyframes rotate-leave {
+	0% {-webkit-transform: rotate(360deg);opacity:1;}
+	100% {-webkit-transform: rotate(450deg);opacity:0;}
+}
+
+@-moz-keyframes rotate-enter {
+	0% {-moz-transform: rotate(270deg);opacity:0;}
+	100% {-moz-transform: rotate(360deg);opacity:1;}
+}
+
+@-moz-keyframes rotate-leave {
+	0% {-moz-transform: rotate(360deg);opacity:1;}
+	100% {-moz-transform: rotate(450deg);opacity:0;}
+}
+
+@-o-keyframes rotate-enter {
+	0% {-o-transform: rotate(270deg);opacity:0;}
+	100% {-o-transform: rotate(360deg);opacity:1;}
+}
+
+@-o-keyframes rotate-leave {
+	0% {-o-transform: rotate(360deg);opacity:1;}
+	100% {-o-transform: rotate(450deg);opacity:0;}
+}

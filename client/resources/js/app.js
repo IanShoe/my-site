@@ -1,6 +1,7 @@
 'use strict';
 
-var modules =  ['ngRoute',
+var modules =  ['ngAnimate',
+                'ngRoute',
                 'mySite.services',
                 'mySite.directives',
                 'MessageCenter',

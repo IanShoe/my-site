@@ -5,10 +5,11 @@
 	<title>Ian Shoemaker</title>
 	<link rel="stylesheet" type="text/css" href="resources/lib/bootstrap-3.0.0/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="resources/css/my-site.css">
+	<link rel="stylesheet" type="text/css" href="resources/css/animations.css">
 	<link rel="stylesheet" type="text/css" href="modules/message-center/message-center.css">
 	<link rel="stylesheet" type="text/css" href="modules/drag-module/drag-module.css">
 </head>
-<body ng-controller="indexCtrl" class="ng-cloak main-container">
+<body ng-controller="indexCtrl" class="ng-cloak">
 	<nav class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navlinks">
@@ -43,7 +44,9 @@
 			</ul>
 		</div>
 	</nav>
-	<ng-view></ng-view>
+	<div class="view-container">
+		<ng-view class="slide-up"></ng-view>
+	</div>
 	<message-center></message-center>
 
 	<!-- Libs -->
@@ -71,7 +74,6 @@
 	<script src="/mobile-engagements/public/lib/ui-bootstrap-tpls-0.5.0.js"></script>
 	<script src="/mobile-engagements/public/lib/bootstrap-editable/js/bootstrap-editable.js"></script>
 	<script src="/mobile-engagements/public/lib/moment.min.js"></script>
-	<script src="/mobile-engagements/public/lib/qrcode.js"></script>
 	<script src="/mobile-engagements/public/lib/underscore-min.js"></script>
 	<script src="/mobile-engagements/public/lib/utils.js"></script>
 
@@ -92,6 +94,5 @@
 	<script src="/mobile-engagements/designer/resources/js/services.js"></script>
 	<script src="/mobile-engagements/general/resources/js/generalDirectives.js"></script>
 -->
-<footer></footer>
 </body>
 </html>
