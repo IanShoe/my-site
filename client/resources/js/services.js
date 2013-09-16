@@ -7,7 +7,8 @@ factory('ModuleService', function () {
 
 	var _modules = [{
 		name: 'Message Center',
-		description: 'Easy Notification System'
+		description: 'Easy Notification System',
+		url: 'views/message-center.html'
 	}];
 
 	var _module = _modules[0];

@@ -1,11 +1,24 @@
 body {
-    background-image: url('../images/BG-Dark-Grunge.jpg');
-    background-size: 15%;
-    color: #efefef;
+    background-image: url('../images/BG-Light-Yellow.jpg');
+    background-size: 25%;
+    color: #4c4c4c;
+    /*color: #efefef; */
     font-family: Times;
     font-size: 16px;
     padding-top: 70px;
 }
+
+/*.back-img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: .9;
+    background-image: url('../images/BG-Ember.jpg');
+    background-size: 25%;
+    background-repeat: repeat;
+    height: 100%;
+    width: 100%;
+}*/
 
 hr.flair-divider {
 	background-color: transparent;
@@ -35,9 +48,6 @@ hr.flair-divider:before {
 
 .view-container{
     position: relative;
-    top: 0;
-    left: 0;
-    margin: 0 50px;
 }
 
 /*Resume*/

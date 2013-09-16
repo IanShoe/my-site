@@ -204,3 +204,17 @@ function resumeCtrl ($scope){
 function moduleCtrl ($scope, ModuleService){
 	$scope.module = ModuleService.getModule();
 }
+
+
+function messageCtrl ($scope, $timeout, MessageService){
+	$scope.msg = 'Broadcast me!'
+
+	$scope.broadcast = function(){
+		MessageService.broadcast($scope.msg, {important: $scope.important});
+	}
+
+	$timeout(function(){
+		MessageService.broadcast('This is an important message!', {important: true});
+		MessageService.broadcast('This is a regular message');
+	}, 200)
+}

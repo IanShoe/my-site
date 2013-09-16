@@ -1,7 +1,6 @@
 angular.module('MessageCenter', []).
 factory('MessageService', function ($rootScope) {
     var counter = 0;
-    var messageItems = [];
 
     var MessageService = {};
     MessageService.config = {
@@ -12,23 +11,29 @@ factory('MessageService', function ($rootScope) {
         this.config.disabled = angular.isDefined(config.disabled) ? config.disabled : this.config.disabled;
     }
 
-    MessageService.broadcast = function (message) {
+    MessageService.broadcast = function (message, opts) {
         if(!this.config.disabled){
             counter++;
             var messageItem = {};
+            if(message.length > 26){
+                messageItem.class = 'large';
+            }
+            else if(message.length < 18){
+                messageItem.class = 'small';
+            }
+            if(opts){
+                if(opts.important){
+                    messageItem.type = 'important'
+                }
+            }
             messageItem.message = message;
             messageItem.id = counter;
-            messageItems.push(messageItem);
             $rootScope.$broadcast('MessageService.broadcast', messageItem);
         }
         else {
             console.log('Message Service Disabled for message: '+ message);
         }
     };
-
-    $rootScope.$on('MessageService.remove', function(message){
-        messageItems.remove(message);
-    });
     
     return MessageService;
 }).
@@ -36,16 +41,27 @@ directive('messageCenter', function ($timeout) {
     return {
         restrict: 'E',
         scope: {},
-        template: '<message ng-repeat="messageItem in messageItems"></message>',
+        template:   '<span>' +
+                        '<span class="message-center-important">' +
+                            '<message ng-repeat="messageItem in impMessageItems" class="message-animation"></message>' +
+                        '</span>' +
+                        '<span class="message-center-regular">' +
+                            '<message ng-repeat="messageItem in messageItems" class="message-animation"></message>' +
+                        '</span>' +
+                    '<span>',
         controller: function ($scope, $attrs, MessageService) {
             $scope.messageItems =  [];
+            $scope.impMessageItems =  [];
             $scope.$on('MessageService.broadcast', function (event, message) {
-                $scope.messageItems.push(message);
+                message.type ? $scope.impMessageItems.push(message) : $scope.messageItems.push(message);
                 $timeout(function(){
-                    $scope.$emit('MessageService.remove', message);
-                    $scope.messageItems.remove(message);
-                }, 3000);
+                    $scope.removeItem(message);
+                }, 2000);
             });
+            $scope.removeItem = function (message){
+                $scope.$emit('MessageService.remove', message);
+                message.type ? $scope.impMessageItems.remove(message) : $scope.messageItems.remove(message);
+            }
         }
     };
 }).
@@ -53,9 +69,10 @@ directive('message', function () {
     return {
         replace: true,
         restrict: 'E',
-        template:   '<div class="message-box">' +
-        '<span class="message-item">{{messageItem.message}}</span>' +
-        '</div>'
+        template:   '<div class="message-box" ng-class="messageItem.class">' +
+                        '<button type="button" class="close" aria-hidden="true" ng-click="removeItem(messageItem)">&times;</button>' +
+                        '<span class="message-item">{{messageItem.message}}</span>' +
+                    '</div>'
     };
 });
 
@@ -69,5 +86,3 @@ Array.prototype.remove = function() {
     }
     return this;
 };
-
-//Have a counter and switch out messages based on current counter
