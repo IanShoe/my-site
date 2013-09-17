@@ -6,12 +6,11 @@
 }
 
 .dropzone-hover {
-	opacity: 1 !important;
+	border: dotted 2px rgba(220, 220, 220, 1);
 }
 
 .dropzone-hover-lite {
-	border: dotted 2px #ddd;
-	opacity: .5;
+	border: dotted 2px rgba(220, 220, 220, 0.7);
 }
 
 .dropzone.top {

@@ -1,6 +1,6 @@
-.slide-up{
+.slide-up {
 	position: absolute;
-	opacity: 1;
+	width: 100%;
 }
 
 .slide-up.ng-enter, .slide-up.ng-leave {
@@ -9,7 +9,6 @@
 	-ms-transition: all .75s ease-in-out;
 	-o-transition: all .75s ease-in-out;
 	transition: all .75s ease-in-out;
-	position: absolute;
 }
 
 .slide-up.ng-enter {
@@ -32,32 +31,36 @@
 	opacity: 0;
 }
 
+.ng-fade {
+	display: block;
+}
+
 .ng-fade.ng-enter, .ng-fade.ng-leave {
-	position:absolute;
+	display: block;
 }
 
 .ng-fade.ng-enter {
-	-webkit-animation: 0.5s fade-enter;
-	-moz-animation: 0.5s fade-enter;
-	-o-animation: 0.5s fade-enter;
-	animation: 0.5s fade-enter;
+	-webkit-animation: 0.75s fade-enter;
+	-moz-animation: 0.75s fade-enter;
+	-o-animation: 0.75s fade-enter;
+	animation: 0.75s fade-enter;
 }
 
 .ng-fade.ng-leave {
-	-webkit-animation: 0.5s fade-leave;
-	-moz-animation: 0.5s fade-leave;
-	-o-animation: 0.5s fade-leave;
-	animation: 0.5s fade-leave;
+	-webkit-animation: 0.75s fade-leave;
+	-moz-animation: 0.75s fade-leave;
+	-o-animation: 0.75s fade-leave;
+	animation: 0.75s fade-leave;
 }
 
 @keyframes fade-enter {
-	from {opacity: 0}
+	from {opacity: 0;}
 	to {opacity: 1;}
 }
 
 @keyframes fade-leave {
 	from {opacity: 1;}
-	to {opacity: 0}
+	to {opacity: 0;}
 }
 
 @-webkit-keyframes fade-enter {

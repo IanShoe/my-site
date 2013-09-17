@@ -7,6 +7,8 @@ factory('MessageService', function ($rootScope) {
         disabled: false
     }
 
+    MessageService.history = [];
+
     MessageService.configure = function(config){
         this.config.disabled = angular.isDefined(config.disabled) ? config.disabled : this.config.disabled;
     }
@@ -28,12 +30,22 @@ factory('MessageService', function ($rootScope) {
             }
             messageItem.message = message;
             messageItem.id = counter;
+            this.history.push(messageItem);
             $rootScope.$broadcast('MessageService.broadcast', messageItem);
         }
         else {
             console.log('Message Service Disabled for message: '+ message);
         }
     };
+
+    MessageService.getHistory = function(){
+        return this.history;
+    }
+
+    MessageService.clearHistory = function(){
+        this.history = [];
+        counter = 0;
+    }
     
     return MessageService;
 }).
@@ -56,7 +68,7 @@ directive('messageCenter', function ($timeout) {
                 message.type ? $scope.impMessageItems.push(message) : $scope.messageItems.push(message);
                 $timeout(function(){
                     $scope.removeItem(message);
-                }, 2000);
+                }, 3000);
             });
             $scope.removeItem = function (message){
                 $scope.$emit('MessageService.remove', message);

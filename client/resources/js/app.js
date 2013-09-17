@@ -32,6 +32,9 @@ mySite.config(['$routeProvider', '$locationProvider', '$compileProvider', functi
         templateUrl: '/views/module.html',
         controller: moduleCtrl
     }).
+    when('/test', {
+        templateUrl: '/views/test.html'
+    }).
     otherwise({
       redirectTo: '/home'
   });

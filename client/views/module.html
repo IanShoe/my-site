@@ -1,5 +1,13 @@
-<div>
-	<div>{{module.name}}</div>
-	<div>{{module.description}}</div>
-	<ng-include src="module.url"></ng-include>
-</div>
+<header class="hero-unit" id="overview">
+	<div class="container">
+		<h4 class="header">{{module.name}}</h4>
+		<h5 class="header">{{module.description}}</h5>
+	</div>
+	<div class="bs-docs-social">
+		<div class="container">
+			<ul class="bs-docs-social-buttons">
+			</ul>
+		</div>
+	</div>
+</header>
+<ng-include src="module.url" class="ng-fade"></ng-include>

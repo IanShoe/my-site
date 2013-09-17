@@ -1,0 +1,66 @@
+<div class="row" ng-controller="dragDropCtrl">
+	<div class="col-md-12" style="border:solid black 1px">
+		<h4 class="header">Droppables</h4>
+		<span ng-repeat="media in mediaFiles.images">
+			<img class="media-image" ng-model="media" ng-src="{{media.url}}" ng-draggable></img>
+		</span>
+	</div>
+	<div class="col-md-5">
+		<h4 class="header">Drop Zone 1</h4>
+		<div class="drop1" ng-droppable="drop1">
+			<div ng-repeat="item in drop1List track by $index">
+				<ng-switch on="item.type.toLowerCase()">
+					<div ng-switch-when="header">
+						<p ng-model="item" ng-style="model.theme.header">{{item.data}}</p>
+					</div>
+					<div ng-switch-when="text">
+						<p ng-model="item">{{item.data}}</p>
+					</div>
+					<div ng-switch-when="image"><img class="media-image" ng-model="item" ng-src="{{item.url}}"></img><br></div>
+					<div ng-switch-when="video">
+						<video ng-model="item" width="260" height="240" ng-src="{{item.url}}" controls></video><br>
+					</div>
+					<div ng-switch-when="url">
+						<p><a ng-model="item" class="hoverable-link" ng-href="{{'http://' + item.data}}" target="_blank" ng-style="model.the.text">{{item.data}}</a></p>
+					</div>
+					<div ng-switch-when="telephone">
+						<p><a ng-model="item" class="hoverable-link" ng-href="{{'tel:+' + toNumbers(item.data)}}" ng-style="model.theme.text{{item.data}}"></a></p>
+					</div>
+					<div ng-switch-when="pdf">
+						<p><a ng-model="item" class="hoverable-link" ng-href="{{item.data.url}}" target="_blank" ng-style="model.theme.text{{item.data.name}}"></a></p>
+					</div>
+					<div ng-switch-when="spacer"><br></div>
+				</ng-switch>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-5 col-md-offset-2">
+		<h4 class="header">Drop Zone 2</h4>
+		<div class="drop2" ng-droppable="drop2">
+			<div ng-repeat="item in drop2List track by $index">
+				<ng-switch on="item.type.toLowerCase()">
+					<div ng-switch-when="header">
+						<p ng-model="item" ng-style="model.theme.header">{{item.data}}</p>
+					</div>
+					<div ng-switch-when="text">
+						<p ng-model="item">{{item.data}}</p>
+					</div>
+					<div ng-switch-when="image"><img class="media-image" ng-model="item" ng-src="{{item.url}}"></img><br></div>
+					<div ng-switch-when="video">
+						<video ng-model="item" width="260" height="240" ng-src="{{item.url}}" controls></video><br>
+					</div>
+					<div ng-switch-when="url">
+						<p><a ng-model="item" class="hoverable-link" ng-href="{{'http://' + item.data}}" target="_blank" ng-style="model.the.text">{{item.data}}</a></p>
+					</div>
+					<div ng-switch-when="telephone">
+						<p><a ng-model="item" class="hoverable-link" ng-href="{{'tel:+' + toNumbers(item.data)}}" ng-style="model.theme.text{{item.data}}"></a></p>
+					</div>
+					<div ng-switch-when="pdf">
+						<p><a ng-model="item" class="hoverable-link" ng-href="{{item.data.url}}" target="_blank" ng-style="model.theme.text{{item.data.name}}"></a></p>
+					</div>
+					<div ng-switch-when="spacer"><br></div>
+				</ng-switch>
+			</div>
+		</div>
+	</div>
+</div>

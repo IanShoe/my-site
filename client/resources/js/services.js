@@ -9,6 +9,11 @@ factory('ModuleService', function () {
 		name: 'Message Center',
 		description: 'Easy Notification System',
 		url: 'views/message-center.html'
+	},
+	{
+		name: 'Drag Module',
+		description: 'Drag and Drop Handler',
+		url: 'views/drag-drop.html'
 	}];
 
 	var _module = _modules[0];

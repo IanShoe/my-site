@@ -202,19 +202,99 @@ function resumeCtrl ($scope){
 }
 
 function moduleCtrl ($scope, ModuleService){
-	$scope.module = ModuleService.getModule();
+	$scope.moduleService = ModuleService;
+
+	$scope.$watch('moduleService.getModule()', function(newValue){
+		$scope.module = newValue;
+	});
 }
 
 
-function messageCtrl ($scope, $timeout, MessageService){
+function messageCtrl ($scope, $location, $timeout, MessageService){
 	$scope.msg = 'Broadcast me!'
 
 	$scope.broadcast = function(){
 		MessageService.broadcast($scope.msg, {important: $scope.important});
 	}
 
-	$timeout(function(){
-		MessageService.broadcast('This is an important message!', {important: true});
-		MessageService.broadcast('This is a regular message');
-	}, 200)
+	var timers = [];
+
+	timers.push($timeout(function(){
+		MessageService.broadcast('Here is a regular message');
+	}, 200))
+
+	timers.push($timeout(function(){
+		MessageService.broadcast('And this is an important message!', {important: true});
+	}, 3000))
+
+	timers.push($timeout(function(){
+		MessageService.broadcast('Messages');
+	}, 5000))
+
+	timers.push($timeout(function(){
+		MessageService.broadcast('Can Also');
+	}, 6000))
+
+	timers.push($timeout(function(){
+		MessageService.broadcast('Be Small');
+	}, 7000))
+
+	timers.push($timeout(function(){
+		MessageService.broadcast('Or they can be fairly large with lots of words like me!');
+	}, 9500))
+
+	$scope.messageService = MessageService;
+
+	$scope.$watch('messageService.history', function(newValue, oldValue){
+		$scope.history = newValue;
+	});
+
+	$scope.location = $location;
+
+	$scope.$watch('location.path() + module.name', function(newValue, oldValue){
+		if($location.path() != '/module' || $scope.module.name != 'Message Center'){
+			for(i = 0; i < timers.length; i++){
+				$timeout.cancel(timers[i]);
+				MessageService.clearHistory();
+			}
+		}
+	});
+}
+
+function dragDropCtrl ($scope, MessageService){
+	$scope.mediaFiles = {
+		images: [{
+			name: 'img1',
+			type: 'image',
+			url:'resources/images/test-image-1.png'
+		},
+		{
+			name: 'img2',
+			type: 'image',
+			url:'resources/images/test-image-2.png'
+		},
+		{
+			name: 'img3',
+			type: 'image',
+			url:'resources/images/test-image-3.png'
+		},
+		{
+			name: 'img4',
+			type: 'image',
+			url:'resources/images/test-image-4.png'
+		}]
+	}
+
+	$scope.drop1List = [];
+	$scope.drop2List = [];
+
+	$scope.drop1 = function(data){
+		$scope.drop1List.push(data);
+		MessageService.broadcast('Dropped in 1!')
+	}
+
+	$scope.drop2 = function(data){
+		$scope.drop2List.push(data);
+		MessageService.broadcast('Dropped in 2!')
+	}
 }
