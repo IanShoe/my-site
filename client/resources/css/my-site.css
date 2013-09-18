@@ -160,6 +160,7 @@ hr.flair-divider:before {
     width: 100%;
     height: 300px;
     border: solid black 2px;
+    overflow: scroll;
 }
 
 .media-image {
