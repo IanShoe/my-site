@@ -20,6 +20,21 @@ body {
     width: 100%;
 }*/
 
+.form-control {
+    display: inline;
+    width: auto;
+}
+
+.hoverable {
+    color: #73a8dd;
+    cursor: pointer;
+}
+
+.subtle {
+    font-size: 13px;
+    opacity: .8;
+}
+
 hr.flair-divider {
 	background-color: transparent;
     height: 20px;

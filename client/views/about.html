@@ -1,6 +1,10 @@
-<div>
+<div ng-controller="aboutCtrl">
+	<div class="headline-container">
+		My name's Ian and I am a <span class="hoverable" tooltip="May 18th, 1990" tooltip-placement="bottom">{{seconds | number}}</span> seconds<span class="subtle">({{years}} year)</span> old software engineer.
+	</div>
+	<div>Checklist</div>
 	<div><i class="glyphicon glyphicon-check"></i> Badass Software Engineer</div>
 	<div><i class="glyphicon glyphicon-check"></i> Badass Drummer</div>
 	<div><i class="glyphicon glyphicon-check"></i> Badass Tennis Player</div>
-	<div><i class="glyphicon glyphicon-remove-circle"></i> Badass Cook</div>
+	<div><i class="glyphicon glyphicon-remove-circle"></i> Badass Cook <span class="subtle">Not yet!</span></div>
 </div>

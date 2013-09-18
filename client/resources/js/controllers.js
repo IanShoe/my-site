@@ -24,7 +24,14 @@ function homeCtrl ($scope){
 }
 
 function aboutCtrl ($scope){
-	
+	var birthday = moment("May 18, 1990");
+	$scope.seconds = Math.floor(moment().diff(birthday)/1000);
+	$scope.years = Math.floor($scope.seconds/31536000);
+	setInterval(function() {
+		$scope.$apply(function(){
+			$scope.seconds++;
+		});
+	}, 1000); 
 }
 
 function contactCtrl ($scope){

@@ -3,35 +3,6 @@ var mySiteDirectives = angular.module('mySite.directives', []);
 mySiteDirectives.
 directive('xpBar', function($timeout){
 
-	// var XP = function(value){
-
-	// 	if(value > 1800){
-	// 		this.level = 'Master';
-	// 		this.stars = new Array(5);
-	// 		this.width = (value - 1800) / 2 + '%';
-	// 	}
-	// 	else if(value > 1400){
-	// 		this.level = 'Expert';
-	// 		this.stars = new Array(4);
-	// 		this.width = (value - 1400) / 4 + '%';
-	// 	}
-	// 	else if(value > 800){
-	// 		this.level = 'Advanced';
-	// 		this.stars = new Array(3);
-	// 		this.width = (value - 800) / 6 + '%';
-	// 	}
-	// 	else if(value > 200){
-	// 		this.level = 'Skilled';
-	// 		this.stars = new Array(2);
-	// 		this.width = (value - 200) / 6 + '%';
-	// 	}
-	// 	else{
-	// 		this.level = 'Beginner';
-	// 		this.stars = new Array(1);
-	// 		this.width = value / 2 + '%';
-	// 	}
-	// }
-
 	var XP = function(value){
 
 		if(value > 1800){

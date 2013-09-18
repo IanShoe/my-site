@@ -10,11 +10,10 @@ app.configure(function(){
 	app.use(express.cookieParser('bossSauce'));
 	app.use(express.session());
 	app.use(app.router);
-	app.use('/\/resources|views|modules\/?.*/', express.static(clientDir));
 });
 console.log(__dirname);
 
-app.get(/\/resources|views|modules\/?.*/, function(req, res){
+app.get(/\/bower_components|resources|views|modules\/?.*/, function(req, res){
 	res.sendfile(clientDir + req.path);
 });
 
