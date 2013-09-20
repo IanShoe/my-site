@@ -1,3 +1,7 @@
+::-webkit-scrollbar { 
+    display: none; 
+}
+
 body {
     background-image: url('../images/BG-Light-Yellow.jpg');
     background-size: 25%;
