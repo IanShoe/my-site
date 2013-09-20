@@ -20,23 +20,8 @@ body {
     width: 100%;
 }*/
 
-.form-control {
-    display: inline;
-    width: auto;
-}
-
-.hoverable {
-    color: #73a8dd;
-    cursor: pointer;
-}
-
-.subtle {
-    font-size: 13px;
-    opacity: .8;
-}
-
 hr.flair-divider {
-	background-color: transparent;
+    background-color: transparent;
     height: 20px;
     border-style: solid;
     border-color: black;
@@ -56,9 +41,28 @@ hr.flair-divider:before {
     border-radius: 20px;
 }
 
+.form-control {
+    display: inline;
+    width: auto;
+}
+
+.hoverable {
+    color: #73a8dd;
+    cursor: pointer;
+}
+
 .navbar {
     font-size: 14px;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: Georgia;
+}
+
+.subtle {
+    font-size: 13px;
+    opacity: .8;
+}
+
+.text-center {
+    text-align: center;
 }
 
 .view-container{
@@ -80,12 +84,14 @@ hr.flair-divider:before {
     font-weight: 500;
 }
 
+.logo-image{
+    max-height: 100px;
+    max-width: 100%;
+}
+
 .resume-address {
     text-align: right;
     margin-top: 10px;
-    /*border-radius: 6px;
-    border: solid 2px #6b8a92;
-    box-shadow: -5px 5px 10px #aba6a6;*/
 }
 
 .resume-header {
@@ -95,11 +101,6 @@ hr.flair-divider:before {
 .resume-name {
     font-size: 16px;
     font-weight: 500;
-}
-
-.logo-image{
-    max-height: 100px;
-    max-width: 100%;
 }
 
 .xp-container {
@@ -178,15 +179,46 @@ hr.flair-divider:before {
     overflow: scroll;
 }
 
-.media-image {
-    height: 100px;
-    width: 100px;
-}
-
 .drop1.dropzone-hover-lite {
     border: dotted 2px rgba(0, 225, 0, 0.7);
 }
 
 .drop2.dropzone-hover-lite {
     border: dotted 2px rgba(225, 0, 0, 0.7);
+}
+
+.media-image, .media-video{
+    border: solid #b8b8b8 1px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 5px;
+    margin-bottom: 10px;
+}
+
+.media-image {
+    max-height: 100px;
+    max-width: 100px;
+}
+
+.media-video {
+    max-height: 200px;
+    max-width: 150px;
+}
+
+.media-image:hover, .media-video:hover {
+    border: solid #6286b8 1px;
+    box-shadow: 0px 0px 15px #6286b8;
+    border-radius: 4px;
+}
+
+.media-image-dropped {
+    display: inline-block;
+    max-height: 100px;
+    max-width: 100px;
+}
+
+.media-video-dropped {
+    display: block;
+    max-height: 300px;
+    max-width: 250px;
 }

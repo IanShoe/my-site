@@ -271,24 +271,29 @@ function messageCtrl ($scope, $location, $timeout, MessageService){
 function dragDropCtrl ($scope, MessageService){
 	$scope.mediaFiles = {
 		images: [{
-			name: 'img1',
+			name: 'itunes',
 			type: 'image',
 			url:'resources/images/test-image-1.png'
 		},
 		{
-			name: 'img2',
+			name: 'play-fish',
 			type: 'image',
 			url:'resources/images/test-image-2.png'
 		},
 		{
-			name: 'img3',
+			name: 'wordpress',
 			type: 'image',
 			url:'resources/images/test-image-3.png'
 		},
 		{
-			name: 'img4',
+			name: 'candy-swirl',
 			type: 'image',
 			url:'resources/images/test-image-4.png'
+		}],
+		videos: [{
+			name: 'test-video',
+			type: 'video',
+			url:'resources/videos/test.mp4'
 		}]
 	}
 

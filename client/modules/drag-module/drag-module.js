@@ -8,8 +8,11 @@ service('DragService', function($rootScope){
 	var dragService = {
 		setDragging : function(value, type){
 			currentDrag.dragging = value;
-			currentDrag.type = type;
+			if(value){
+				currentDrag.type = type;
+			}
 			$rootScope.$broadcast('DragService.dragging', currentDrag);
+			currentDrag.type = type;
 		},
 		getDragging : function(){
 			return currentDrag.dragging;
@@ -40,7 +43,7 @@ directive('ngDroppable', function (DragService) {
 			var mediaTypes = scope.$eval(attrs.mediaTypes);
 			scope.$on('DragService.dragging', function(event, currentDrag){
 				// Determine if it's a type we care about
-				if(!currentDrag.type || !mediaTypes || mediaTypes.contains(currentDrag.type)){
+				if(!(mediaTypes && !contains(mediaTypes, currentDrag.type))){
 					if(currentDrag.dragging){
 						dragging();
 					}
@@ -49,6 +52,14 @@ directive('ngDroppable', function (DragService) {
 					}
 				}
 			});
+
+			function contains (array, obj) {
+				var i = array.length;
+				while (i--) {
+					if (array[i] == obj) return true;
+				}
+				return false;
+			};
 
 			function dragging(){
 				element.on('dragenter', dragEnter);

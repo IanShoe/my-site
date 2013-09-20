@@ -1,12 +1,17 @@
 <div class="row" ng-controller="dragDropCtrl">
 	<div class="col-md-12" style="border:solid black 1px">
 		<h4 class="header">Droppables</h4>
+		<h4>Images</h4>
 		<span ng-repeat="media in mediaFiles.images">
-			<img class="media-image" ng-model="media" ng-src="{{media.url}}" ng-draggable></img>
+			<img class="media-image" ng-model="media" ng-src="{{media.url}}" tooltip="{{media.name}}" tooltip-popup-delay="200" ng-draggable></img>
+		</span>
+		<h4>Videos</h4>
+		<span ng-repeat="media in mediaFiles.videos">
+			<video class="media-video" ng-model="media" ng-src="{{media.url}}" tooltip="{{media.name}}" tooltip-popup-delay="200" ng-draggable></video>
 		</span>
 	</div>
 	<div class="col-md-5">
-		<h4 class="header">Drop Zone 1</h4>
+		<h4 class="header">I Take Anything</h4>
 		<div class="drop1" ng-droppable="drop1">
 			<span ng-repeat="item in drop1List track by $index">
 				<ng-switch on="item.type.toLowerCase()">
@@ -16,9 +21,9 @@
 					<span ng-switch-when="text">
 						<p ng-model="item">{{item.data}}</p>
 					</span>
-					<span ng-switch-when="image"><img class="media-image" ng-model="item" ng-src="{{item.url}}"></img></span>
+					<span ng-switch-when="image"><img class="media-image-dropped" ng-model="item" ng-src="{{item.url}}"></img></span>
 					<span ng-switch-when="video">
-						<video ng-model="item" width="260" height="240" ng-src="{{item.url}}" controls></video>
+						<video ng-model="item" width="260" height="240" ng-src="{{item.url}}" class="media-video-dropped" controls></video>
 					</span>
 					<span ng-switch-when="url">
 						<p><a ng-model="item" class="hoverable-link" ng-href="{{'http://' + item.data}}" target="_blank" ng-style="model.the.text">{{item.data}}</a></p>
@@ -35,8 +40,8 @@
 		</div>
 	</div>
 	<div class="col-md-5 col-md-offset-2">
-		<h4 class="header">Drop Zone 2</h4>
-		<div class="drop2" ng-droppable="drop2">
+		<h4 class="header">I am limited to images only!</h4>
+		<div class="drop2" ng-droppable="drop2" media-types="['image']">
 			<span ng-repeat="item in drop2List track by $index">
 				<ng-switch on="item.type.toLowerCase()">
 					<span ng-switch-when="header">
@@ -45,9 +50,9 @@
 					<span ng-switch-when="text">
 						<p ng-model="item">{{item.data}}</p>
 					</span>
-					<span ng-switch-when="image"><img class="media-image" ng-model="item" ng-src="{{item.url}}"></img></span>
+					<span ng-switch-when="image"><img class="media-image-dropped" ng-model="item" ng-src="{{item.url}}"></img></span>
 					<span ng-switch-when="video">
-						<video ng-model="item" width="260" height="240" ng-src="{{item.url}}" controls></video>
+						<video ng-model="item" width="260" height="240" ng-src="{{item.url}}" class="media-video-dropped" controls></video>
 					</span>
 					<span ng-switch-when="url">
 						<p><a ng-model="item" class="hoverable-link" ng-href="{{'http://' + item.data}}" target="_blank" ng-style="model.the.text">{{item.data}}</a></p>
