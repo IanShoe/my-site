@@ -252,7 +252,7 @@ function messageCtrl ($scope, $location, $timeout, MessageService){
 
 	$scope.messageService = MessageService;
 
-	$scope.$watch('messageService.history', function(newValue, oldValue){
+	$scope.$watch('messageService.getHistory()', function(newValue, oldValue){
 		$scope.history = newValue;
 	});
 
