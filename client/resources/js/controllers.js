@@ -218,6 +218,7 @@ function moduleCtrl ($scope, ModuleService){
 
 
 function messageCtrl ($scope, $location, $timeout, MessageService){
+	MessageService.clearHistory();
 	$scope.msg = 'Broadcast me!'
 
 	$scope.broadcast = function(){
