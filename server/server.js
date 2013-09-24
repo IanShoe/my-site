@@ -1,8 +1,6 @@
 var express = require('express');
+var router = require('./router');
 var app = module.exports = express();
-
-var splitList = __dirname.split('/');
-var clientDir = splitList.splice(0, splitList.length -1).join('/') + '/client';
 
 app.configure(function(){
 	app.use(express.bodyParser());
@@ -11,15 +9,10 @@ app.configure(function(){
 	app.use(express.session());
 	app.use(app.router);
 });
-console.log(__dirname);
 
-app.get(/\/bower_components|resources|views|modules\/?.*/, function(req, res){
-	res.sendfile(clientDir + req.path);
-});
+app.get(/\/bower_components|resources|views|modules\/?.*/, router.resources);
 
-app.get('/*', function(req, res){
-	res.sendfile(clientDir + '/index.html');
-});
+app.get('/*', router.index);
 
 app.configure('development', function(){
 	app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
