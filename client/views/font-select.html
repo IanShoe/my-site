@@ -1,10 +1,14 @@
 <div class="row" ng-controller="fontSelectCtrl">
-	<font-group fonts="fonts" font="myFont"></font-group>
-	<span ng-style="{'fontFamily': myFont}"> Selected Font: {{myFont}}</span>
-	<div class="input-group" style="width:200px; margin-top:10px">
-		<input type="text" class="form-control" ng-model="newFont" placeholder="Add a Font" ng-style="{'fontFamily': newFont}">
-		<span class="input-group-btn" ng-model="newFont">
-			<button class="btn btn-default" type="button" ng-click="addFont()"><i class="glyphicon glyphicon-plus"></i></button>
-		</span>
+	<div class="col-md-6">
+		<font-group fonts="fonts" font="myFont"></font-group>
+		<span ng-style="{'fontFamily': myFont}"> Selected Font: {{myFont}}</span>
+	</div>
+	<div class="col-md-6">
+		<div class="input-group" style="width:200px">
+			<input type="text" class="form-control" ng-model="newFont" placeholder="Add a Font" ng-style="{'fontFamily': newFont}" style="height:35px;">
+			<span class="input-group-btn" ng-model="newFont">
+				<button class="btn btn-default" type="button" ng-click="addFont()"><i class="glyphicon glyphicon-plus"></i></button>
+			</span>
+		</div>
 	</div>
 </div>
