@@ -24,6 +24,7 @@
     "angular-bootstrap": "~0.6.0",
     "momentjs": "~2.2.1",
     "angular-message-center": "*",
-    "angular-dnd": "*"
+    "angular-dnd": "*",
+    "angular-font-select": "*"
   }
 }

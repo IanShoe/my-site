@@ -5,6 +5,7 @@ var modules =  ['ngAnimate',
                 'mySite.services',
                 'mySite.directives',
                 'ui.bootstrap',
+                'ui.bootstrap.font-group',
                 'MessageCenter',
                 'DragModule'];
 

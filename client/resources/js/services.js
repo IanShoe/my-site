@@ -8,12 +8,20 @@ factory('ModuleService', function () {
 	var _modules = [{
 		name: 'Message Center',
 		description: 'Easy Notification System',
+		gitUrl: 'https://github.com/IanShoe/angular-message-center',
 		url: 'views/message-center.html'
 	},
 	{
 		name: 'Drag Module',
 		description: 'Drag and Drop Handler',
+		gitUrl: 'https://github.com/IanShoe/angular-dnd',
 		url: 'views/drag-drop.html'
+	},
+	{
+		name: 'Font Select Module',
+		description: 'Awesome Font Selection Module',
+		gitUrl: 'https://github.com/IanShoe/angular-font-select',
+		url: 'views/font-select.html'
 	}];
 
 	var _module = _modules[0];

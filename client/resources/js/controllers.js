@@ -42,7 +42,6 @@ function resumeCtrl ($scope){
 	$scope.resume = {
 		name: 'Ian Shintaro Shoemaker',
 		email: 'iss90g@gmail.com',
-		tel: '814-421-2872',
 		occupation: 'Software Engineer',
 		address: {
 			street: '522 Boston Court',
@@ -309,5 +308,26 @@ function dragDropCtrl ($scope, MessageService){
 	$scope.drop2 = function(data){
 		$scope.drop2List.push(data);
 		MessageService.broadcast('Dropped in 2!')
+	}
+}
+
+function fontSelectCtrl ($scope){
+	$scope.fonts = [
+	'Arial',
+	'Arial Black',
+	'Courier New',
+	'Georgia',
+	'Helvetica',
+	'Impact',
+	'Tahoma',
+	'Times New Roman',
+	'Verdana'];
+	$scope.myFont = $scope.fonts[2];
+
+	$scope.addFont = function(){
+		for (var i = $scope.fonts.length - 1; i >= 0; i--) {
+			if($scope.newFont.toLowerCase() === $scope.fonts[i].toLowerCase()){ return; }
+		};
+		$scope.fonts.push($scope.newFont);
 	}
 }
