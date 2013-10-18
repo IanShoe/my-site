@@ -316,6 +316,7 @@ function fontSelectCtrl ($scope){
 	'Arial',
 	'Arial Black',
 	'Courier New',
+	'Cursive',
 	'Georgia',
 	'Helvetica',
 	'Impact',
@@ -328,6 +329,6 @@ function fontSelectCtrl ($scope){
 		for (var i = $scope.fonts.length - 1; i >= 0; i--) {
 			if($scope.newFont.toLowerCase() === $scope.fonts[i].toLowerCase()){ return; }
 		};
-		$scope.fonts.push($scope.newFont);
+		$scope.fonts.push($scope.newFont.proper());
 	}
 }

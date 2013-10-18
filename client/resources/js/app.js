@@ -6,13 +6,42 @@ var modules =  ['ngAnimate',
                 'mySite.directives',
                 'ui.bootstrap',
                 'ui.bootstrap.font-group',
+                'ui.router',
                 'MessageCenter',
                 'DragModule'];
 
 var mySite = angular.module('my-site-app', modules);
 
 /* Routing */
-mySite.config(['$routeProvider', '$locationProvider', '$compileProvider', function($routeProvider, $locationProvider) {
+mySite.config(['$routeProvider', '$locationProvider', '$stateProvider', '$urlRouterProvider' , function($routeProvider, $locationProvider, $stateProvider, $urlRouterProvider) {
+    // $stateProvider.
+    // state('home', {
+    //     url: '/home',
+    //     templateUrl: '/views/home.html',
+    //     controller: homeCtrl
+    // }).
+    // state('about', {
+    //     url: '/about',
+    //     templateUrl: '/views/about.html',
+    //     controller: aboutCtrl
+    // }).
+    // state('contact', {
+    //     url: '/contact',
+    //     templateUrl: '/views/contact.html',
+    //     controller: contactCtrl
+    // }).
+    // state('resume', {
+    //     url: '/resume',
+    //     templateUrl: '/views/resume.html',
+    //     controller: resumeCtrl
+    // }).
+    // state('module', {
+    //     url: '/module',
+    //     templateUrl: '/views/module.html',
+    //     controller: moduleCtrl
+    // });
+    // $urlRouterProvider.otherwise('/home');
+
     $routeProvider.
     when('/home', {
         templateUrl: '/views/home.html',

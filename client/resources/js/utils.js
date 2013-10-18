@@ -1,31 +1,39 @@
 Array.prototype.advancedFind = function(instance, properties) {
 	var found = {};
-	if(!instance && !properties)return null;
-	if(properties instanceof Array){
-		if(properties.length === 0) {
-			return null;
-		}
+	if(!instance){
+		throw new Error("No instance specified");
+	}
+	if(!properties){
 		for (var i = 0; i < this.length; i++) {
-			var finding = true;
-			for(var j= 0; j < properties.length; j++){
-				if (this[i][properties[j]] === instance[properties[j]] || this[i][properties[j]] === instance) {
-					continue;
-				}
-				else{
-					finding = false;
-					break;
-				}
-			}
-			if(finding){
+			if (this[i] === instance) {
 				found.index = i;
 				found.item = this[i];
 				return found;
 			}
 		}
 	}
-	else if(typeof properties === 'string'){
+	if(properties instanceof Array){
+		if(properties.length === 0) {
+			throw new Error("No properties specified");
+		}
+		for (var i = 0; i < this.length; i++) {
+			var matching = true;
+			for(var j= 0; j < properties.length; j++){
+				if (!(this[i][properties[j]] === instance[properties[j]] || this[i][properties[j]] === instance)) {
+					matching = false;
+					break;
+				}
+			}
+			if(matching){
+				found.index = i;
+				found.item = this[i];
+				return found;
+			}
+		}
+	}
+	else if(isString(properties)){
 		if(properties === '') {
-			return null;
+			throw new Error("No property specified");
 		}
 		for (var i = 0; i < this.length; i++) {
 			if (this[i][properties] === instance[properties] || this[i][properties] === instance) {
@@ -35,10 +43,7 @@ Array.prototype.advancedFind = function(instance, properties) {
 			}
 		}
 	}
-	else {
-		return null;
-	}
-	return false;
+	return null;
 };
 
 Array.prototype.contains = function(obj) {
@@ -49,6 +54,11 @@ Array.prototype.contains = function(obj) {
 	return false;
 };
 
+Array.prototype.move = function(from,to){
+	this.splice(to,0,this.splice(from,1)[0]);
+	return this;
+};
+
 Array.prototype.remove = function() {
 	var what, a = arguments, L = a.length, ax;
 	while (L && this.length) {
@@ -57,11 +67,6 @@ Array.prototype.remove = function() {
 			this.splice(ax, 1);
 		}
 	}
-	return this;
-};
-
-Array.prototype.move = function(from,to){
-	this.splice(to,0,this.splice(from,1)[0]);
 	return this;
 };
 
@@ -107,11 +112,8 @@ String.prototype.loweredAndDashed = function() {
 	return this.toLowerCase().split(' ').join('-');
 };
 
-String.prototype.toCamelCase = function() {
-	return this.replace(/^([A-Z])|[\s-_](\w)/g, function(match, p1, p2, offset) {
-		if (p2) return p2.toUpperCase();
-		return p1.toLowerCase();        
-	});
+String.prototype.proper = function() {
+	    return this.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
 };
 
 String.prototype.retrieveByDelimitation = function(positions, delimiter) {
@@ -128,6 +130,13 @@ String.prototype.retrieveByDelimitation = function(positions, delimiter) {
 	else {
 		return parts[positions];
 	}
+};
+
+String.prototype.toCamelCase = function() {
+	return this.replace(/^([A-Z])|[\s-_](\w)/g, function(match, p1, p2, offset) {
+		if (p2) return p2.toUpperCase();
+		return p1.toLowerCase();        
+	});
 };
 
 function isString(obj) {
