@@ -1,7 +1,7 @@
 <div class="row" ng-controller="messageCtrl">
 	<div class="col-md-6">
 		<div>
-			<input type="text" ng-model="msg" class="form-control">
+			<input type="text" class="form-control" ng-model="msg">
 			<label style="cursor:pointer">
 				<input type="checkbox" ng-model="important" style="cursor:pointer"> Important
 			</label>
@@ -9,7 +9,7 @@
 				<select ng-model="color" ng-options="color for color in colors | orderBy:'toString()'"></select>Color
 			</label>
 			<label style="cursor:pointer">
-				<input type="number" ng-model="max" min="1"> Max <span class="subtle">Max is enforced at the time of broadcast</span>
+				<input type="number" class="form-control" ng-model="max" min="1"> Max <span class="subtle">Max is enforced at the time of broadcast</span>
 			</label>
 		</div>
 		<div style="margin-top:10px">

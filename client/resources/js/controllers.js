@@ -221,7 +221,7 @@ function messageCtrl ($scope, $location, $timeout, MessageService){
 	$scope.msg = 'Broadcast me!'
 	$scope.colors = ['success','info','danger','primary','warning','none'];
 	$scope.color = $scope.colors[5];
-	$scope.max = 1;
+	$scope.max = 3;
 
 	$scope.$watch('max', function(newValue, oldValue) {
 		if(angular.isNumber(newValue)){
