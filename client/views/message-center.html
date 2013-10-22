@@ -3,10 +3,13 @@
 		<div>
 			<input type="text" ng-model="msg" class="form-control">
 			<label style="cursor:pointer">
-				<input type="checkbox" ng-model="important" style="cursor:pointer">Important
+				<input type="checkbox" ng-model="important" style="cursor:pointer"> Important
 			</label>
 			<label style="cursor:pointer">
 				<select ng-model="color" ng-options="color for color in colors | orderBy:'toString()'"></select>Color
+			</label>
+			<label style="cursor:pointer">
+				<input type="number" ng-model="max" min="1"> Max <span class="subtle">Max is enforced at the time of broadcast</span>
 			</label>
 		</div>
 		<div style="margin-top:10px">
