@@ -219,9 +219,15 @@ function moduleCtrl ($scope, ModuleService){
 function messageCtrl ($scope, $location, $timeout, MessageService){
 	MessageService.clearHistory();
 	$scope.msg = 'Broadcast me!'
+	$scope.colors = ['success','info','danger','primary','warning','none'];
+	$scope.color = $scope.colors[5];
 
 	$scope.broadcast = function(){
-		MessageService.broadcast($scope.msg, {important: $scope.important});
+		var opts = {
+			important: $scope.important,
+			color: ($scope.color != 'none') ? $scope.color : undefined
+		}
+		MessageService.broadcast($scope.msg, opts);
 	}
 
 	var timers = [];
@@ -235,20 +241,24 @@ function messageCtrl ($scope, $location, $timeout, MessageService){
 	}, 3000))
 
 	timers.push($timeout(function(){
-		MessageService.broadcast('Messages');
-	}, 5000))
+		MessageService.broadcast('Colors are also supported! - Success', {color: 'success'});
+	}, 5500))
 
 	timers.push($timeout(function(){
-		MessageService.broadcast('Can Also');
-	}, 6000))
+		MessageService.broadcast('Danger', {color: 'danger', important:true});
+	}, 6500))
 
 	timers.push($timeout(function(){
-		MessageService.broadcast('Be Small');
-	}, 7000))
+		MessageService.broadcast('Info', {color: 'info'});
+	}, 7300))
 
 	timers.push($timeout(function(){
-		MessageService.broadcast('Or they can be fairly large with lots of words like me!');
-	}, 9500))
+		MessageService.broadcast('Primary', {color: 'primary'});
+	}, 7500))
+
+	timers.push($timeout(function(){
+		MessageService.broadcast('Warning, and the max is set to 3!', {color: 'warning'});
+	}, 7800))
 
 	$scope.messageService = MessageService;
 
