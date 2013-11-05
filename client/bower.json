@@ -16,15 +16,15 @@
   ],
   "dependencies": {
     "angular": "1.2.0-rc.2",
-    "jquery": "~2.0.3",
-    "bootstrap": "~3.0.0",
     "angular-animate": "~1.2.0-rc.2",
+    "angular-bootstrap": "~0.6.0",
+    "angular-dnd": "*",
+    "angular-font-select": "*",
+    "angular-message-center": "~1.0.1",
     "angular-route": "1.2.0-rc.2",
     "angular-ui-router": "~0.2.0",
-    "angular-bootstrap": "~0.6.0",
-    "momentjs": "~2.2.1",
-    "angular-message-center": "*",
-    "angular-dnd": "*",
-    "angular-font-select": "*"
+    "bootstrap": "~3.0.0",
+    "jquery": "~2.0.3",
+    "momentjs": "~2.2.1"
   }
 }
