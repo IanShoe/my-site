@@ -188,11 +188,15 @@ hr.flair-divider:before {
 }
 
 .drop1.dropzone-hover-lite {
-    border: dotted 2px rgba(0, 225, 0, 0.7);
+    border: dotted 2px rgba(225, 0, 0, 0.7);
 }
 
 .drop2.dropzone-hover-lite {
     border: dotted 2px rgba(0, 0, 225, 0.7);
+}
+
+.dropzone-hover{
+    border: dotted 2px rgba(73, 200, 73, 1)!important;
 }
 
 .media-image, .media-video{
