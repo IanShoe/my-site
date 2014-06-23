@@ -1,77 +1,48 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="my-site-app">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta content="Developer - Ian Shoemaker" name="description">
-<meta name="author" content="Ian Shoemaker">
+<meta content="Developer - Ian Shoemaker">
 <head>
-	<title>DevElementz</title>
-	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="bower_components/angular-message-center/message-center.css">
-	<link rel="stylesheet" type="text/css" href="bower_components/angular-font-select/angular-font-select.css">
-	<link rel="stylesheet" type="text/css" href="bower_components/angular-dnd/dnd.css">
-	<link rel="stylesheet" type="text/css" href="resources/css/my-site.css">
-	<link rel="stylesheet" type="text/css" href="resources/css/animations.css">
+  <title>DevElementz</title>
+  <link rel="stylesheet" type="text/css" href="dist/vendor.css">
+  <link rel="stylesheet" type="text/css" href="dist/my-site.css">
+  <script src="dist/vendor.js"></script>
+  <script src="dist/my-site.js"></script>
 </head>
-<body ng-controller="indexCtrl" class="ng-cloak">
-	<!-- <div class="back-img"></div> -->
-	<nav class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navlinks">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand" href="home">DevElementz</a>
-		</div>
-		<div class="collapse navbar-collapse navlinks">
-			<ul class="nav navbar-nav">
-				<li ng-class="{active: activeNav=='home'}" ng-click="navClick()"><a href="home">Home</a></li>
-				<li ng-class="{active: activeNav=='resume'}" ng-click="navClick()"><a href="resume">Resume</a></li>
-				<li ng-class="{active: activeNav=='about'}" ng-click="navClick()"><a href="about">About Me</a></li>
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Modules <b class="caret"></b></a>
-					<ul class="dropdown-menu">
-						<li ng-repeat="module in modules" ng-click="gotoModule(module)"><a href="#">{{module.name}}</a></li>
-					</ul>
-				</li>
-			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Menu <b class="caret"></b></a>
-					<ul class="dropdown-menu">
-						<li><a>Nothing Here Yet</a></li>
-						<!-- <li ng-class="{active: activeNav=='contact'}"><a href="contact"><i class="glyphicon glyphicon-envelope"></i> Contact</a></li> -->
-						<!-- <li class="divider"></li>
-						<li><a href="#" ng-click="logout()"><i class="glyphicon glyphicon-off"></i> Logout</a></li> -->
-					</ul>
-				</li>
-			</ul>
-		</div>
-	</nav>
-	<div class="container view-container">
-		<ng-view class="slide-up row"></ng-view>
-		<!-- <ui-view class="slide-up row"></ui-view> -->
-	</div>
-
-	<!-- Libs -->
-	<script src="bower_components/jquery/jquery.js"></script>
-	<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-	<script src="bower_components/angular/angular.js"></script>
-	<script src="bower_components/angular-route/angular-route.js"></script>
-	<script src="bower_components/angular-animate/angular-animate.js"></script>
-	<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-	<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-	<script src="bower_components/angular-message-center/dist/message-center.min.js"></script>
-	<script src="bower_components/angular-font-select/angular-font-select.js"></script>
-	<script src="bower_components/angular-dnd/dnd.js"></script>
-	<script src="bower_components/momentjs/moment.js"></script>
-
-	<!-- App -->
-	<script src="resources/js/app.js"></script>
-	<script src="resources/js/controllers.js"></script>
-	<script src="resources/js/directives.js"></script>
-	<script src="resources/js/services.js"></script>
-	<script src="resources/js/utils.js"></script>
+<body ng-controller="IndexCtrl" class="ng-cloak">
+  <nav class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navlinks">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="home" ng-class="{active: activeNav=='home'}">DevElementz</a>
+    </div>
+    <div class="collapse navbar-collapse navlinks">
+      <ul class="nav navbar-nav">
+        <li ng-class="{active: activeNav=='resume'}" ng-click="navClick()"><a href="resume">Resume</a></li>
+        <li ng-class="{active: activeNav=='about'}" ng-click="navClick()"><a href="about">About Me</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Showcase <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li ng-repeat="module in modules" ng-click="gotoModule(module)"><a href="#">{{module.name}}</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Menu <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a>Nothing Here Yet</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container view-container">
+    <ng-view class="slide-up row"></ng-view>
+  </div>
 </body>
 </html>
