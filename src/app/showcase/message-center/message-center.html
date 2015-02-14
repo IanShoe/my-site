@@ -1,0 +1,23 @@
+<div class="row" ng-controller="MessageCenterCtrl">
+  <div class="col-md-6">
+    <div>
+      <input type="text" class="form-control" ng-model="msg">
+      <label style="cursor:pointer">
+        <input type="checkbox" ng-model="important" style="cursor:pointer"> Important
+      </label>
+      <label style="cursor:pointer">
+        <select ng-model="color" ng-options="color for color in colors | orderBy:'toString()'"></select>Color
+      </label>
+      <label style="cursor:pointer">
+        <input type="number" class="form-control" ng-model="max" min="1"> Max <span class="subtle">(Enforced at time of broadcast)</span>
+      </label>
+    </div>
+    <div style="margin-top:10px">
+      <button class="btn btn-primary" ng-click="broadcast()">Broadcast</button>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <h4 class="header">Message Center History</h4>
+    <pre>{{history | json}}</pre>
+  </div>
+</div>

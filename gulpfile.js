@@ -1,56 +1,80 @@
 var gulp = require('gulp');
-var clean = require('gulp-clean');
+var del = require('del');
 var concat = require('gulp-concat');
 var es = require('event-stream');
 var html2js = require('gulp-ng-html2js');
+var install = require('gulp-install');
 var minifyHtml = require('gulp-minify-html');
 var minifyCSS = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
+var wiredep = require('wiredep');
 
 var pkg = {
-  name: 'my-site'
+  name: 'my-site',
+  bower: 'bower_components/',
+  dist: 'dist'
 };
 
-var bowerPath = 'client/bower_components';
+var wiredepConfig = {
+  directory: 'bower_components',
+  bowerJson: require('./bower.json')
+};
 
-var path = {
-  js: ['client/src/**/*.js', 'client/src/utils.js'],
-  css: 'client/src/css/*.css',
-  vendorJs: [
-    bowerPath + '/angular/angular.js',
-    bowerPath + '/angular-animate/angular-animate.js',
-    bowerPath + '/angular-dnd/dnd.js',
-    bowerPath + '/angular-font-select/angular-font-select.js',
-    bowerPath + '/angular-message-center/dist/message-center.js',
-    bowerPath + '/angular-resource/angular-resource.js',
-    bowerPath + '/angular-route/angular-route.js',
-    bowerPath + '/jquery/dist/jquery.js',
-    bowerPath + '/bootstrap/dist/js/bootstrap.js',
-    bowerPath + '/momentjs/moment.js',
-    bowerPath + '/ngprogress/build/ngProgress.js'
-  ],
-  vendorCss: [
-    bowerPath + '/angular-dnd/dnd.css',
-    bowerPath + '/angular-font-select/angular/font-select.css',
-    bowerPath + '/angular-message-center/dist/message-center.css',
-    bowerPath + '/bootstrap/dist/css/bootstrap.css',
-    bowerPath + '/ngprogress/ngProgress.css'
-  ],
+var paths = {
+  js: 'src/**/*.js',
+  css: 'src/css/*.css',
+  images: 'resources/images/*',
+  videos: 'resources/videos/*',
   fonts: [
-    bowerPath + '/bootstrap/dist/fonts/*'
+    pkg.bower + 'bootstrap/fonts/*'
   ],
-  dist: 'client/dist',
-  templates: 'client/src/**/*.html'
+  cssMaps: [
+    pkg.bower + 'bootstrap/dist/css/bootstrap.css.map'
+  ],
+  jsMaps: [
+    pkg.bower + 'angular-resource/angular-resource.min.js.map'
+  ],
+  dist: {
+    css: pkg.dist + '/css',
+    fonts: pkg.dist + '/fonts',
+    images: pkg.dist + '/images',
+    js: pkg.dist + '/js',
+    videos: pkg.dist + '/videos',
+  },
+  index: 'src/index.html',
+  templates: 'src/app/**/*.html'
 };
-
 
 gulp.task('clean', function() {
-  return gulp.src(path.dist).pipe(clean());
+  return del([pkg.dist]);
+});
+
+gulp.task('clean-dependencies', function() {
+  return del([pkg.bower]);
+});
+
+gulp.task('install', ['clean-dependencies'], function() {
+  return gulp.src(['bower.json']).pipe(install());
+});
+
+// In the future, it should change things based on environment that's being run
+gulp.task('build-index', function() {
+  return gulp.src(paths.index)
+    .pipe(gulp.dest(pkg.dist));
+});
+
+gulp.task('build-css', function() {
+  return gulp.src(paths.css)
+    .pipe(concat(pkg.name + '.css'))
+    .pipe(gulp.dest(paths.dist.css))
+    .pipe(rename(pkg.name + '.min.css'))
+    .pipe(minifyCSS())
+    .pipe(gulp.dest(paths.dist.css));
 });
 
 gulp.task('build-js', function() {
-  var templateStream = gulp.src(path.templates)
+  var templateStream = gulp.src(paths.templates)
     .pipe(minifyHtml({
       empty: true,
       spare: true,
@@ -62,48 +86,65 @@ gulp.task('build-js', function() {
       stripPrefix: 'app/'
     }));
 
-  var jsStream = gulp.src(path.js);
+  var jsStream = gulp.src(paths.js);
 
   return es.merge(templateStream, jsStream)
     .pipe(concat(pkg.name + '.js'))
-    .pipe(gulp.dest('client/dist'))
+    .pipe(gulp.dest(paths.dist.js))
     .pipe(rename(pkg.name + '.min.js'))
     .pipe(uglify())
-    .pipe(gulp.dest('client/dist'));
-});
-
-gulp.task('build-vendor-js', function() {
-  return gulp.src(path.vendorJs)
-    .pipe(concat('vendor.js'))
-    .pipe(gulp.dest('client/dist'));
-});
-
-gulp.task('build-css', function() {
-  return gulp.src(path.css)
-    .pipe(concat(pkg.name + '.css'))
-    .pipe(gulp.dest('client/dist'))
-    .pipe(rename(pkg.name + '.min.css'))
-    .pipe(minifyCSS())
-    .pipe(gulp.dest('client/dist'));
+    .pipe(gulp.dest(paths.dist.js));
 });
 
 gulp.task('build-vendor-css', function() {
-  return gulp.src(path.vendorCss)
+  return gulp.src(wiredep(wiredepConfig).css)
     .pipe(concat('vendor.css'))
-    .pipe(gulp.dest('client/dist'));
+    .pipe(gulp.dest(paths.dist.css))
+    .pipe(rename('vendor.min.css'))
+    .pipe(minifyCSS())
+    .pipe(gulp.dest(paths.dist.css));
 });
 
-gulp.task('copy', function() {
-  return gulp.src(path.fonts)
-    .pipe(gulp.dest('client/fonts'));
+gulp.task('build-vendor-js', function() {
+  return gulp.src(wiredep(wiredepConfig).js)
+    .pipe(concat('vendor.js'))
+    .pipe(gulp.dest(paths.dist.js))
+    .pipe(rename('vendor.min.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest(paths.dist.js));
+});
+
+gulp.task('copy-css-maps', function() {
+  return gulp.src(paths.cssMaps)
+    .pipe(gulp.dest(paths.dist.css));
+});
+
+gulp.task('copy-fonts', function() {
+  return gulp.src(paths.fonts)
+    .pipe(gulp.dest(paths.dist.fonts));
+});
+
+gulp.task('copy-images', function() {
+  return gulp.src(paths.images)
+    .pipe(gulp.dest(paths.dist.images));
+});
+
+gulp.task('copy-js-maps', function() {
+  return gulp.src(paths.jsMaps)
+    .pipe(gulp.dest(paths.dist.js));
+});
+
+gulp.task('copy-videos', function() {
+  return gulp.src(paths.videos)
+    .pipe(gulp.dest(paths.dist.videos));
 });
 
 gulp.task('watches', function() {
-  gulp.watch([path.js, path.templates], ['build-js']);
-  gulp.watch([path.css], ['build-css']);
+  gulp.watch([paths.js, paths.templates], ['build-js']);
+  gulp.watch([paths.index], ['build-index']);
+  gulp.watch([paths.css], ['build-css']);
 });
 
-gulp.task('builds', ['build-js', 'build-css', 'build-vendor-js',
-  'build-vendor-css'
-]);
-gulp.task('default', ['builds', 'copy', 'watches']);
+gulp.task('build', ['build-js', 'build-css', 'build-vendor-js', 'build-vendor-css', 'build-index']);
+gulp.task('copies', ['copy-js-maps', 'copy-css-maps', 'copy-fonts', 'copy-images', 'copy-videos']);
+gulp.task('default', ['build', 'copies', 'watches']);

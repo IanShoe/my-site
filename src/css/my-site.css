@@ -1,0 +1,109 @@
+::-webkit-scrollbar {
+  display: none;
+}
+[ng\:cloak],
+[ng-cloak],
+[data-ng-cloak],
+[x-ng-cloak],
+.ng-cloak,
+.x-ng-cloak {
+  display: none !important;
+}
+body {
+  background-image: url('../images/BG-Light-Yellow.jpg');
+  color: #4c4c4c;
+  font-family: Times;
+  font-size: 16px;
+  padding-top: 70px;
+}
+
+hr.flair-divider {
+  background-color: transparent;
+  height: 20px;
+  border-style: solid;
+  border-color: black;
+  border-width: 1px 0 0 0;
+  border-radius: 20px;
+  margin-bottom: -15px;
+}
+hr.flair-divider:before {
+  display: block;
+  content: "";
+  height: 20px;
+  margin-top: -21px;
+  border-style: solid;
+  border-color: black;
+  border-width: 0 0 1px 0;
+  border-radius: 20px;
+}
+.form-control {
+  display: inline;
+  width: auto;
+}
+.hoverable {
+  color: #73a8dd;
+  cursor: pointer;
+}
+.navbar {
+  font-size: 14px;
+  font-family: Georgia;
+}
+.subtle {
+  font-size: 13px;
+  opacity: .8;
+}
+.text-center {
+  text-align: center;
+}
+.view-container {
+  position: relative;
+}
+/*Drag and Drop*/
+.drop1,
+.drop2 {
+  width: 100%;
+  height: 300px;
+  border: solid black 2px;
+  overflow: scroll;
+}
+.drop1.dropzone-hover-lite {
+  border: dotted 2px rgba(225, 0, 0, 0.7);
+}
+.drop2.dropzone-hover-lite {
+  border: dotted 2px rgba(0, 0, 225, 0.7);
+}
+.dropzone-hover {
+  border: dotted 2px rgba(73, 200, 73, 1)!important;
+}
+.media-image,
+.media-video {
+  border: solid #b8b8b8 1px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 5px;
+  margin-bottom: 10px;
+}
+.media-image {
+  max-height: 100px;
+  max-width: 100px;
+}
+.media-video {
+  max-height: 200px;
+  max-width: 150px;
+}
+.media-image:hover,
+.media-video:hover {
+  border: solid #6286b8 1px;
+  box-shadow: 0px 0px 15px #6286b8;
+  border-radius: 4px;
+}
+.media-image-dropped {
+  display: inline-block;
+  max-height: 100px;
+  max-width: 100px;
+}
+.media-video-dropped {
+  display: block;
+  max-height: 300px;
+  max-width: 250px;
+}

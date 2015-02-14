@@ -1,0 +1,20 @@
+.main-content {} .side-content {} .header {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+}
+.logo-image {
+  max-height: 100px;
+  max-width: 100%;
+}
+.resume-address {
+  text-align: right;
+  margin-top: 10px;
+}
+.resume-header {
+  margin-bottom: 20px;
+}
+.resume-name {
+  font-size: 16px;
+  font-weight: 500;
+}
